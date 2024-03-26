@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.brand {
+    font-size: 1rem;
+}
+
+.brand span {
+    font-weight: 800;
+    text-transform: uppercase;
+};
+
+.link_list {
+    display: flex;
+    list-style: none;
+};
+
+.active {
+    background-color: #000;
+    color: #fff;
+}

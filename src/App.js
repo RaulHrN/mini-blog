@@ -1,23 +1,45 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 function App() {
+
+  const [user, setUser] = useState(undefined);
+  const { auth } = useAuthentication();
+
+  const loadingUser = user === undefined;
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+  }, [auth]);
+
+  if (loadingUser) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider value={{ user }}>
+        <BrowserRouter>
+          <Navbar />
+          <div className='container'>
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/" />}></Route>
+              <Route path="/register" element={!user ? <RegisterPage /> : <Navigate to="/" />}></Route>
+              <Route path="/about" element={<AboutPage/>}></Route>
+              <Route path="search" element={<SearchPage />}></Route>
+              <Route path="dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />}></Route>
+              <Route path="/posts/:id" element={<Post />}></Route>
+              <Route path="/posts/create" element={user ? <CreatePost /> : <Navigate to="/login" />}></Route>
+              <Route path="/posts/edit/:id" element={user ? <EditPost /> : <Navigate to='/login' />}></Route>
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
