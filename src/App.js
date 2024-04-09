@@ -15,9 +15,9 @@ import { Post } from "./pages/post/Post";
 import { Navbar } from "./components/navbar/Navbar.component";
 import { Footer } from "./components/footer/Footer.component";
 import { CreatePost } from "./pages/create-post/CreatePost";
-import { SearchPage } from "./pages/search/Search";
-import { LoginPage } from "./pages/login-page/Login";
-import { RegisterPage } from "./pages/register-page/Register";
+import { Search } from "./pages/search/Search";
+import { LoginPage } from "./pages/login-page/LoginPage";
+import { RegisterPage } from "./pages/register-page/RegisterPage";
 import { Dashboard } from "./pages/dashboard/Dashboard";
 import { EditPost } from "./pages/edit-post/EditPost";
 
@@ -54,7 +54,7 @@ function App() {
                 element={!user ? <RegisterPage /> : <Navigate to="/" />}
               ></Route>
               <Route path="/about" element={<AboutPage />}></Route>
-              <Route path="search" element={<SearchPage />}></Route>
+              <Route path="search" element={<Search />}></Route>
               <Route
                 path="dashboard"
                 element={user ? <Dashboard /> : <Navigate to="/login" />}

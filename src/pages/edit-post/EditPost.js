@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 
-const EditPost = () => {
+export const EditPost = () => {
   const { id } = useParams();
   const { document: post } = useFetchDocument("posts", id);
 
@@ -129,5 +129,3 @@ const EditPost = () => {
     </div>
   );
 };
-
-export default EditPost;

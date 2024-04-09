@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 
-export const Register = () => {
+export const RegisterPage = () => {
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
