@@ -38,16 +38,6 @@ export const CreatePost = () => {
       setFormError("Please, fill in all fields!");
     }
 
-    console.log(tagsArray);
-    console.log({
-      title,
-      image,
-      body,
-      tags: tagsArray,
-      uid: user.uid,
-      createBy: user.displayName,
-    });
-
     if (formError) return;
 
     insertDocument({

@@ -8,27 +8,17 @@ export const RegisterPage = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { createUser, error: authError, loading } = useAuthentication();
+  const { error: authError, loading } = useAuthentication();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setError("");
 
-    const user = {
-      displayName,
-      email,
-      password,
-    };
-
     if (password !== confirmPassword) {
       setError("Passwords must be the same");
       return;
     }
-
-    const res = await createUser(user);
-
-    console.log(res);
   };
 
   useEffect(() => {
@@ -39,7 +29,7 @@ export const RegisterPage = () => {
 
   return (
     <div className="page-container">
-      <p>Register now</p>
+      <p className="page-title">Register now</p>
       <p>Share your thoughts</p>
       <form onSubmit={handleSubmit}>
         <label>

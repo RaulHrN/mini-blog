@@ -1,0 +1,43 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.navbar-title {
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+.navbar-title span {
+  color: #eb5e28;
+}
+
+.navbar-title :hover {
+  color: #eb5e28;
+}
+
+.navbar-link {
+  color: white;
+}
+
+.navbar ul a.active {
+  color: #fffcf2;
+}
+
+.link-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.logout-btn {
+  padding: 0.2rem 0.5rem;
+  background: none;
+  border-radius: 6px;
+  border: 1px solid #fffcf2;
+  cursor: pointer;
+  color: #fffcf2;
+}

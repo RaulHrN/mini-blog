@@ -1,3 +1,5 @@
+import "./Search.css";
+
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import { useQuery } from "../../hooks/useQuery";
 
@@ -12,14 +14,14 @@ export const Search = () => {
   const { documents: posts } = useFetchDocuments("posts", search);
 
   return (
-    <div>
-      <p>Results for: {search}</p>
-      <div>
+    <div className="page-container">
+      <p className="page-title">Results for: {search}</p>
+      <div className="search-results">
         {posts && posts.length === 0 && (
-          <>
+          <div className="search_not-found">
             <p>Results not found...</p>
             <Link to="/">Back</Link>
-          </>
+          </div>
         )}
         {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
       </div>

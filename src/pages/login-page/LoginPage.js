@@ -3,24 +3,14 @@ import { useAuthentication } from "../../hooks/useAuthentication";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { login, error: authError, loading } = useAuthentication();
+  const { error: authError, loading } = useAuthentication();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setError("");
-
-    const user = {
-      email,
-      password,
-    };
-
-    const res = await login(user);
-
-    console.log(res);
   };
 
   useEffect(() => {
