@@ -1,3 +1,5 @@
+import "./CreatePost.css"
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
@@ -52,8 +54,7 @@ export const CreatePost = () => {
       title,
       image,
       body,
-      tags,
-      tagsArray,
+      tags: tagsArray,
       uid: user.uid,
       createBy: user.displayName,
     });
@@ -64,12 +65,12 @@ export const CreatePost = () => {
   return (
     <div className="page-container">
       <p className="page-title">Create post</p>
-      <p>Share your toughts!</p>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="create-post_form">
         <label>
           <p>Title:</p>
           <input
+            className="form-input"
             required
             type="text"
             name="text"
@@ -79,8 +80,9 @@ export const CreatePost = () => {
           />
         </label>
         <label>
-          <span>Image URL:</span>
+          <p>Image URL:</p>
           <input
+            className="form-input"
             required
             type="text"
             name="image"
@@ -90,8 +92,9 @@ export const CreatePost = () => {
           />
         </label>
         <label>
-          <span>Content:</span>
+          <p>Content:</p>
           <textarea
+            className="form-input"
             required
             name="body"
             placeholder="insert post content"
@@ -100,8 +103,9 @@ export const CreatePost = () => {
           ></textarea>
         </label>
         <label>
-          <span>Tags:</span>
+          <p>Tags:</p>
           <input
+            className="form-input"
             required
             type="text"
             name="tags"
@@ -110,8 +114,8 @@ export const CreatePost = () => {
             onChange={(e) => setTags(e.target.value)}
           />
         </label>
-        {!response.loading && <button>Create post</button>}
-        {response.loading && <button disabled>Waiting...</button>}
+        {!response.loading && <button className="submit-btn">Create post</button>}
+        {response.loading && <button className="submit-btn" disabled>Waiting...</button>}
         {(response.error || formError) && (
           <p className="error">{response.error || formError}</p>
         )}

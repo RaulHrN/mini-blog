@@ -1,0 +1,30 @@
+.create-post_form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-post_form label {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    color: #fffcf2;
+}
+
+.create-post_form label p{
+    width: 6.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.create-post_form label textarea {
+    height: 10rem;
+}
