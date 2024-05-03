@@ -104,8 +104,8 @@ export const CreatePost = () => {
             onChange={(e) => setTags(e.target.value)}
           />
         </label>
-        {!response.loading && <button className="submit-btn">Create post</button>}
-        {response.loading && <button className="submit-btn" disabled>Waiting...</button>}
+        {!response.loading && <button className="btn">Create post</button>}
+        {response.loading && <button className="btn" disabled>Waiting...</button>}
         {(response.error || formError) && (
           <p className="error">{response.error || formError}</p>
         )}

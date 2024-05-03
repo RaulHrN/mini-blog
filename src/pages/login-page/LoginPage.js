@@ -21,10 +21,9 @@ export const LoginPage = () => {
 
   return (
     <div className="page-container">
-      <p className="page-title">Enter</p>
-      <p>Log in to be able to use the system</p>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <p className="page-title">Log in</p>
+      <form className="form-container" onSubmit={handleSubmit}>
+        <label className="form-label">
           <p>Email:</p>
           <input
             required
@@ -35,8 +34,8 @@ export const LoginPage = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        {!loading && <button>Enter</button>}
-        {!loading && <button disabled>Wait...</button>}
+        {!loading && <button className="btn">Enter</button>}
+        {loading && <button className="btn" disabled>Wait...</button>}
         {error && <p>{error}</p>}
       </form>
     </div>

@@ -1,3 +1,4 @@
+import "./EditPost.css";
 
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -60,14 +61,13 @@ export const EditPost = () => {
   };
 
   return (
-    <div >
+    <div className="page-container">
       {post && (
         <>
-          <h2>Editing post: {post.title}</h2>
-          <p>Change post details</p>
-          <form onSubmit={handleSubmit}>
-            <label>
-              <span>Title:</span>
+          <h2 className="page-title">Editing post: {post.title}</h2>
+          <form className="form-container edit-post-form" onSubmit={handleSubmit}>
+            <label className="form-label">
+              <p>Title:</p>
               <input
                 type="text"
                 name="text"
@@ -77,8 +77,8 @@ export const EditPost = () => {
                 value={title}
               />
             </label>
-            <label>
-              <span>Image URL:</span>
+            <label className="form-label">
+              <p>Image URL:</p>
               <input
                 type="text"
                 name="image"
@@ -88,13 +88,10 @@ export const EditPost = () => {
                 value={image}
               />
             </label>
-            <p>Current image preview:</p>
-            <img
-              src={post.image}
-              alt={post.title}
-            />
-            <label>
-              <span>Content:</span>
+              <img src={post.image} alt={post.title} />
+
+            <label className="form-label">
+              <p>Content:</p>
               <textarea
                 name="body"
                 required
@@ -103,8 +100,8 @@ export const EditPost = () => {
                 value={body}
               ></textarea>
             </label>
-            <label>
-              <span>Tags:</span>
+            <label className="form-label">
+              <p>Tags:</p>
               <input
                 type="text"
                 name="tags"

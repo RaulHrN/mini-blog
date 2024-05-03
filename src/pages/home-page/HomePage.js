@@ -34,7 +34,7 @@ export const HomePage = () => {
             className="search-bar_input"
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button className="submit-btn">Search</button>
+          <button className="btn">Search</button>
         </form>
       </div>
       <div className="post-list">

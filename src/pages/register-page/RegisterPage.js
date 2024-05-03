@@ -1,3 +1,5 @@
+import "./RegisterPage.css";
+
 import { useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 
@@ -30,9 +32,8 @@ export const RegisterPage = () => {
   return (
     <div className="page-container">
       <p className="page-title">Register now</p>
-      <p>Share your thoughts</p>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form className="form-container register-form" onSubmit={handleSubmit}>
+        <label className="form-label">
           <p>Name:</p>
           <input
             required
@@ -43,8 +44,8 @@ export const RegisterPage = () => {
             onChange={(e) => setDisplayName(e.target.value)}
           />
         </label>
-        <label>
-          <span>Email:</span>
+        <label className="form-label">
+          <p>Email:</p>
           <input
             required
             type="email"
@@ -54,8 +55,8 @@ export const RegisterPage = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        <label>
-          <span>Password:</span>
+        <label className="form-label">
+          <p>Password:</p>
           <input
             required
             type="password"
@@ -65,8 +66,8 @@ export const RegisterPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <label>
-          <span>Password confirmation:</span>
+        <label className="form-label">
+          <p>Password confirmation:</p>
           <input
             required
             type="password"
@@ -76,8 +77,8 @@ export const RegisterPage = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </label>
-        {!loading && <button>Enter</button>}
-        {loading && <button disabled>Wait...</button>}
+        {!loading && <button className="btn">Register</button>}
+        {loading && <button  className="btn" disabled>Wait...</button>}
         {error && <p>{error}</p>}
       </form>
     </div>
